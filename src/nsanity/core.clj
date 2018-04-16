@@ -42,14 +42,13 @@
    sorted))
 
 (defn nsanify
-  ([path]
-   (nsanify path nil))
-  ([path opts]
-   (let [data       (z/of-file path)
+  ([s]
+   (nsanify s nil))
+  ([s opts]
+   (let [data       (z/of-string s)
          ns-form    (z/find-value data z/next 'ns)
          ns-require (z/find-value ns-form z/next :require)]
      (when ns-require
        (let [sorted  (sort-import-zlocs ns-require)
              reorg'd (reorg-import-zlocs ns-require sorted)]
-         (spit path
-               (n/string (z/root reorg'd))))))))
+         (n/string (z/root reorg'd)))))))

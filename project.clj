@@ -1,4 +1,4 @@
-(defproject nsanity "0.0.1"
+(defproject nsanity "0.0.1-SNAPSHOT"
   :description "A library to restore namespace sanity"
   :url "https://github.com/royaldark/nsanity"
   :license {:name "Eclipse Public License"
